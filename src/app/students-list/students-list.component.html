@@ -1,0 +1,34 @@
+
+<div class="container mt-5">
+  <h1>Students</h1>
+  <div class="row">
+    <div *ngIf="!students" class="loader">
+      <div>Student List is loading ...</div>
+      <img src="../assets/images/E5qkx.gif" alt="">
+    </div>
+    <div class="col-12" *ngFor="let student of students" >
+
+      <div class="card mb-3">
+        <div class="card-body bg-light">
+          <div class="details-text">
+            <h5 class="card-title">{{student.name}}</h5>
+            <h6>Class: {{student.class}}</h6>
+            <h6>Age: {{student.Age}}</h6>
+            <p>Section: {{student.Section}}</p>
+            <p>Address: {{student.address}}</p>
+          </div>
+
+          <div class="btns">
+            <!--<a href="view" class="btn btn-info mb-2 d-block" (click)="viewDetails(student)">View Student</a>-->
+            <!--<a class="btn btn-primary mb-2 d-block" (click)="viewDetails(student)">Edit Student</a>-->
+            <!--<a href="delete" class="btn btn-danger d-block" (click)="deleteUser()">Delete Student</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <button class="btn btn-primary" routerLink="/addnewStudent">Add New Student</button>
+</div>
+
+

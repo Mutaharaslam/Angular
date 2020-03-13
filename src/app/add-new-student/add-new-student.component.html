@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <h1>Add Student</h1>
+
+  {{ studentForm?.value | json }}
+  <form [formGroup]="studentForm" (ngSubmit)="onFormSubmit(studentForm.value)">
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" placeholder="Name" class="form-control" id="name" formControlName="name">
+      <div class="bg-danger" *ngIf="!studentForm.get('name').value && studentForm.get('name').touched">name is required</div>
+    </div>
+    <!--/name-->
+
+    <!--Class-->
+    <div class="form-group">
+      <label for="class">Class:</label>
+      <input id="class" placeholder="Class" class="form-control" formControlName="class">
+
+      <div class="bg-danger" *ngIf="!studentForm.get('class').value && studentForm.get('class').touched">Specify the Student of Class</div>
+    </div>
+    <!--/Class-->
+
+    <!--Age-->
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input id="age" type="number" min="0" max="30" placeholder="Age" class="form-control" formControlName="age">
+
+      <div class="bg-danger" *ngIf="!studentForm.get('age').value && studentForm.get('age').touched">Enter Age</div>
+
+    </div>
+    <!--/Age-->
+
+    <div class="form-group">
+      <label for="section">Section:</label>
+      <input class="form-control" id="section" placeholder="Your Section" formControlName="section">
+      <div class="bg-danger" *ngIf="!studentForm.get('section').value && studentForm.get('section').touched">Please Add Section</div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input class="form-control" id="address" placeholder="Add Address" formControlName="address">
+
+      <div class="bg-danger" *ngIf="!studentForm.get('address').value && studentForm.get('address').touched">Address is Required</div>
+    </div>
+
+    <button class="btn btn-primary mr-4" type="submit" [disabled]="!studentForm.valid">Add Student</button>
+  </form>
+</div>
