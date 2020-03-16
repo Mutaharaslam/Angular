@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Student } from '../student-Schema';
-import { StudentServiceService } from '../services/student-service.service';
-// import { SoliderCommunicationService } from '../solider-communication.service';
-import { Observable, fromEvent } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Student} from '../student-Schema';
+import {StudentServiceService} from '../services/student-service.service';
+import {ActivatedRoute, Router, Params} from '@angular/router';
 
 @Component({
   selector: 'app-students-list',
@@ -12,9 +11,11 @@ import { Observable, fromEvent } from 'rxjs';
 export class StudentsListComponent implements OnInit {
 
   students: Student[];
+
   // selectedStudent: Student;
 
-  constructor(private studentService: StudentServiceService) { }
+  constructor(private studentService: StudentServiceService, public router: Router) {
+  }
 
   ngOnInit() {
     this.getStudents();
@@ -26,8 +27,16 @@ export class StudentsListComponent implements OnInit {
     });
   }
 
-  onSelect(student) {
-    // this.selectedStudent = student;
+  // Del Student
+  deleteStudent(student: Student) {
+    if (confirm('Rre you sure? If yes Then this Student will be deleted from the record')) {
+      this.studentService.deleteStudent(student.id).subscribe((response) => {
+        this.getStudents();
+      });
+    }
   }
 
+  // openstudentToEdit(student) {
+  //   this.router.navigate(['/editStudent'], {queryParams : {id: student.id}});
+  // }
 }

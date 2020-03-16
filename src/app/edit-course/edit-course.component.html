@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <h1>Add Course</h1>
+
+  <!--{{ courseForm?.value | json }}-->
+  <form [formGroup]="courseForm" (ngSubmit)="onFormSubmit()">
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" placeholder="Name" class="form-control" id="name" formControlName="name">
+      <div class=" bg-danger" *ngIf="!courseForm.get('name').value && courseForm.get('name').touched">Name is
+        Required
+      </div>
+    </div>
+    <!--/name-->
+
+    <!--Class-->
+    <div class="form-group">
+      <label for="duration">Duration of Course:</label>
+      <input id="duration" placeholder="Duration of Course" class="form-control" formControlName="duration">
+
+      <div class="bg-danger" *ngIf="!courseForm.get('duration').value && courseForm.get('duration').touched">Specify the
+        Duration of Course
+      </div>
+    </div>
+    <!--/Class-->
+
+    <!--Age-->
+    <div class="form-group">
+      <label for="fee">Fee:</label>
+      <input id="fee" type="number" min="0" max="30" placeholder="Fee" class="form-control" formControlName="fee">
+
+      <div class="bg-danger" *ngIf="!courseForm.get('fee').value && courseForm.get('fee').touched">Enter Fee of the Course</div>
+
+    </div>
+    <!--/Age-->
+
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input type="date" class="form-control" id="startDate" placeholder="date" formControlName="startDate">
+      <div class="bg-danger" *ngIf="!courseForm.get('startDate').value && courseForm.get('startDate').touched">Specify the Initial date
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary mr-4" type="submit" [disabled]="!courseForm.valid">Add Course</button>
+  </form>
+</div>

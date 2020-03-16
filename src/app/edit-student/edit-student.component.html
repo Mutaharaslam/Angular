@@ -1,1 +1,64 @@
-<p>edit-student works!</p>
+<div class="container mt-5">
+  <h1>{{ student.name }}</h1>
+
+  <!--{{ studentEditForm?.value | json }}-->
+  <form [formGroup]="studentEditForm" (ngSubmit)="editStudentform()">
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" placeholder="Name" class="form-control" id="name" formControlName="name">
+      <div class=" bg-danger" *ngIf="!studentEditForm.get('name').value && studentEditForm.get('name').touched">Name is
+        Required
+      </div>
+    </div>
+    <!--/name-->
+
+    <!--Class-->
+    <div class="form-group">
+      <label for="class">Class:</label>
+      <input id="class" placeholder="Class" class="form-control" formControlName="class">
+
+      <div class="bg-danger" *ngIf="!studentEditForm.get('class').value && studentEditForm.get('class').touched">Specify the
+        Student of Class
+      </div>
+    </div>
+    <!--/Class-->
+
+    <!--Age-->
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input id="age" type="number" min="0" max="30" placeholder="Age" class="form-control" formControlName="age">
+
+      <div class="bg-danger" *ngIf="!studentEditForm.get('age').value && studentEditForm.get('age').touched">Enter Age</div>
+
+    </div>
+    <!--/Age-->
+
+    <div class="form-group">
+      <label for="section">Section:</label>
+      <input class="form-control" id="section" placeholder="Your Section" formControlName="section">
+      <div class="bg-danger" *ngIf="!studentEditForm.get('section').value && studentEditForm.get('section').touched">Please Add
+        Section
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input class="form-control" id="address" placeholder="Add Address" formControlName="address">
+
+      <div class="bg-danger" *ngIf="!studentEditForm.get('address').value && studentEditForm.get('address').touched">Address is
+        Required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="courseId">Course ID:</label>
+      <input type="number" placeholder="Course ID" class="form-control" id="courseId" formControlName="courseId">
+      <div class="bg-danger" *ngIf="!studentEditForm.get('courseId').value && studentEditForm.get('courseId').touched">Course ID
+        is required
+      </div>
+    </div>
+
+    <button class="btn btn-primary mr-4" type="submit" [disabled]="!studentEditForm.valid">Save</button>
+  </form>
+</div>

@@ -1,2 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+
+.card-body{
+  box-shadow: 0 5px 25px #00000042;
+  border-radius: 5px;
+}

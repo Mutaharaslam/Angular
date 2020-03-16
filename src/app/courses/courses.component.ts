@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Course} from '../courses-schema';
+import {CourseService} from '../services/course.service';
+import {ActivatedRoute, Router, Params} from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
+  courses: Course[];
 
-  constructor() { }
+  constructor(private courseService: CourseService, public router: Router) {
+  }
 
   ngOnInit() {
+    this.getCourses();
+  }
+
+  getCourses() {
+    this.courseService.getCourses().subscribe((response) => {
+      this.courses = response;
+    });
+  }
+
+  // Del Course
+  deleteCourse(course: Course) {
+    this.courseService.deleteCourse(course.id).subscribe((response) => {
+      this.getCourses();
+    });
   }
 
 }

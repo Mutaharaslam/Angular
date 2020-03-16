@@ -12,16 +12,16 @@
         <div class="card-body bg-light">
           <div class="details-text">
             <h5 class="card-title">{{student.name}}</h5>
-            <h6>Class: {{student.class}}</h6>
-            <h6>Age: {{student.Age}}</h6>
-            <p>Section: {{student.Section}}</p>
-            <p>Address: {{student.address}}</p>
+            <h6><b>Class: </b>{{student.class}}</h6>
+            <h6><b>Age: </b>{{student.age}}</h6>
+            <p><b>Section: </b>{{student.section}}</p>
+            <p><b>Address: </b>{{student.address}}</p>
           </div>
 
           <div class="btns">
-            <!--<a href="view" class="btn btn-info mb-2 d-block" (click)="viewDetails(student)">View Student</a>-->
-            <!--<a class="btn btn-primary mb-2 d-block" (click)="viewDetails(student)">Edit Student</a>-->
-            <!--<a href="delete" class="btn btn-danger d-block" (click)="deleteUser()">Delete Student</a>-->
+            <!--<a class="btn btn-primary mb-2 d-block" (click)="openstudentToEdit(student)">Edit Student</a>-->
+            <a [routerLink]="['/edit-student/', student.id]" class="btn btn-primary mb-2 d-block">Edit Student</a>
+            <a class="btn btn-danger d-block" (click)="deleteStudent(student)">Delete Student</a>
           </div>
         </div>
       </div>

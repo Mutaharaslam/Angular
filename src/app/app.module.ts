@@ -10,6 +10,8 @@ import { AddNewStudentComponent } from './add-new-student/add-new-student.compon
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoursesComponent } from './courses/courses.component';
+import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CoursesComponent } from './courses/courses.component';
     StudentsListComponent,
     AddNewStudentComponent,
     EditStudentComponent,
-    CoursesComponent
+    CoursesComponent,
+    AddNewCourseComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,

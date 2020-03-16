@@ -1,1 +1,33 @@
-<p>courses works!</p>
+
+<div class="container mt-5">
+  <h1>Available Courses</h1>
+  <div class="row">
+    <div *ngIf="!courses" class="loader">
+      <div>Courses List is loading ...</div>
+      <img src="../assets/images/E5qkx.gif" alt="">
+    </div>
+    <div class="col-4" *ngFor="let course of courses" >
+
+      <div class="card mb-3">
+        <div class="card-body bg-light">
+          <div class="details-text">
+            <h5 class="card-title">{{course.name}}</h5>
+            <h6><b>Duration: </b>{{course.duration}}</h6>
+            <h6><b>Fee: </b>{{course.fee}}</h6>
+            <p><b>Start Date: </b>{{course.startDate}}</p>
+          </div>
+
+          <div class="btns">
+            <!--<a class="btn btn-primary mb-2 d-block" (click)="opencourseToEdit(course)">Edit Course</a>-->
+            <a [routerLink]="['/edit-course/', course.id]" class="btn btn-primary mb-2 d-block">Edit Course</a>
+            <a class="btn btn-danger d-block" (click)="deleteCourse(course)">Delete Course</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <button class="btn btn-primary" routerLink="/addnewcourse">Add New Course</button>
+</div>
+
+
