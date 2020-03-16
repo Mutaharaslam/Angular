@@ -17,11 +17,9 @@ export class EditCourseComponent implements OnInit {
 
   courseEditForm = this.formBuilder.group({
     name: ['', Validators.required],
-    age: ['', Validators.required],
-    class: ['', Validators.required],
-    section: ['', Validators.required],
-    address: ['', Validators.required],
-    courseId: ['', Validators.required]
+    duration: ['', Validators.required],
+    fee: ['', Validators.required],
+    startDate: ['', Validators.required]
   });
 
   constructor(private courseService: CourseService,
