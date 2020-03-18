@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {StudentServiceService} from '../services/student-service.service';
+import {CourseService} from '../services/course.service';
 import {Student} from '../student-Schema';
+import {Course} from '../courses-schema';
 import {ActivatedRoute, Router} from '@angular/router';
 
 
@@ -14,6 +16,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class EditStudentComponent implements OnInit {
   student: Student;
   id: number;
+  courses: Course[];
 
   studentEditForm = this.formBuilder.group({
     name: ['', Validators.required],
@@ -27,13 +30,14 @@ export class EditStudentComponent implements OnInit {
   constructor(private studentService: StudentServiceService,
               private route: ActivatedRoute,
               private formBuilder: FormBuilder,
+              private courseService: CourseService,
               private router: Router) {
   }
 
   ngOnInit() {
     this.getStudent();
+    this.getCourses();
   }
-
   getStudent() {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.studentService.getStudent(this.id).subscribe({
@@ -48,6 +52,12 @@ export class EditStudentComponent implements OnInit {
   editStudentform() {
     this.studentService.updateStudent(this.id, this.studentEditForm).subscribe( res => {
       this.router.navigate(['/StudentsList']);
+    });
+  }
+
+  getCourses() {
+    this.courseService.getCourses().subscribe((response) => {
+      this.courses = response;
     });
   }
 

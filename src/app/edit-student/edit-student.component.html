@@ -53,10 +53,15 @@
 
     <div class="form-group">
       <label for="courseId">Course ID:</label>
-      <input type="number" placeholder="Course ID" class="form-control" id="courseId" formControlName="courseId">
-      <div class="bg-danger" *ngIf="!studentEditForm.get('courseId').value && studentEditForm.get('courseId').touched">Course ID
-        is required
-      </div>
+      <!--<input type="number" placeholder="Course ID" class="form-control" id="courseId" formControlName="courseId">-->
+      <!--<div class="bg-danger" *ngIf="!studentEditForm.get('courseId').value && studentEditForm.get('courseId').touched">Course ID-->
+        <!--is required-->
+      <!--</div>-->
+      <select name="courseId" id="courseId" class="form-control">
+        <option value="" *ngFor="let course of courses" [value]=course.id>
+          {{course.id }} : {{course.name }}
+        </option>
+      </select>
     </div>
 
     <button class="btn btn-primary mr-4" type="submit" [disabled]="!studentEditForm.valid">Save</button>

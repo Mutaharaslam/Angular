@@ -16,16 +16,24 @@
             <h6><b>Age: </b>{{student.age}}</h6>
             <p><b>Section: </b>{{student.section}}</p>
             <p><b>Address: </b>{{student.address}}</p>
+            <p><b>Course ID: </b>{{student.courseId}}</p>
           </div>
 
           <div class="btns">
-            <!--<a class="btn btn-primary mb-2 d-block" (click)="openstudentToEdit(student)">Edit Student</a>-->
+            <a [routerLink]="['/StudentsList/viewStd', student.id]" class="btn btn-primary mb-2 d-block" (click)="viewStudent(student)">
+              View Student
+            </a>
             <a [routerLink]="['/edit-student/', student.id]" class="btn btn-primary mb-2 d-block">Edit Student</a>
             <a class="btn btn-danger d-block" (click)="deleteStudent(student)">Delete Student</a>
           </div>
+          <!--<app-view-student [displayStd]="student"></app-view-student>-->
         </div>
       </div>
     </div>
+
+
+
+
 
   </div>
   <button class="btn btn-primary" routerLink="/addnewStudent">Add New Student</button>
