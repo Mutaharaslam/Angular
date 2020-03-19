@@ -20,9 +20,7 @@
           </div>
 
           <div class="btns">
-            <a [routerLink]="['/StudentsList/viewStd', student.id]" class="btn btn-primary mb-2 d-block" (click)="viewStudent(student)">
-              View Student
-            </a>
+            <a [routerLink]="['/StudentsList/viewStd', student.id]" class="btn btn-primary mb-2 d-block">View details</a>
             <a [routerLink]="['/edit-student/', student.id]" class="btn btn-primary mb-2 d-block">Edit Student</a>
             <a class="btn btn-danger d-block" (click)="deleteStudent(student)">Delete Student</a>
           </div>

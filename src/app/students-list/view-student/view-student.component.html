@@ -1,0 +1,25 @@
+<div class="col-12">
+  <div class="card mb-3">
+    <div class="card-body bg-light">
+      <div class="details-text">
+        <h4 class="card-title">{{students.name}}</h4>
+        <p><b>Class: </b>{{students.class}}</p>
+        <p><b>Age: </b>{{students.age}}</p>
+        <p><b>Section: </b>{{students.section}}</p>
+        <p><b>Address: </b>{{students.address}}</p>
+      </div>
+      <hr>
+      <div class="details-text">
+        <h4>Course Details</h4>
+        <p><b>enrolled Course: </b>{{students.course.name}}</p>
+        <p><b>Course duration: </b>{{students.course.duration}}</p>
+        <p><b>Course Fee: </b>{{students.course.fee}}</p>
+        <p><b>Course Start Date: </b>{{students.course.startDate}}</p>
+      </div>
+
+      <div class="btns">
+        <a routerLink="/StudentsList" class="btn btn-primary mb-2 d-block">Go back</a>
+      </div>
+    </div>
+  </div>
+</div>

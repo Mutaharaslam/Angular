@@ -1,11 +1,10 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StudentServiceService} from '../services/student-service.service';
 import {Student} from '../student-Schema';
 import {CourseService} from '../services/course.service';
 import {Course} from '../courses-schema';
 import {ActivatedRoute, Router, Params} from '@angular/router';
 
-import {ViewStudentComponent} from './view-student/view-student.component';
 
 @Component({
   selector: 'app-students-list',
@@ -50,8 +49,8 @@ export class StudentsListComponent implements OnInit {
   //   this.router.navigate(['/editStudent'], {queryParams : {id: student.id}});
   // }
 
-  viewStudent(studentID) {
-    this.router.navigateByUrl(`StudentsList/viewStd/${studentID.id}`, { state: { student: studentID } });
+  // viewStudent(studentID) {
+  //   this.router.navigateByUrl(`StudentsList/viewStd/${studentID.id}`, { state: { student: studentID } });
   //
   //   if (studentID) {
   //     console.log(this.students);
@@ -64,6 +63,6 @@ export class StudentsListComponent implements OnInit {
   //     }
   //
   //   }
-  }
+  // }
 
 }
