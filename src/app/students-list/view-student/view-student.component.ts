@@ -29,7 +29,6 @@ export class ViewStudentComponent implements OnInit {
     this.studentService.getStudent(this.id).subscribe({
       next: (std) => {
         this.students = std;
-        console.log(this.students);
       }
     });
   }

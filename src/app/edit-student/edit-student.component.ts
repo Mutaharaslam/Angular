@@ -44,7 +44,6 @@ export class EditStudentComponent implements OnInit {
       next: (std) => {
         this.student = std;
         this.studentEditForm.patchValue(std);
-        console.log(this.studentEditForm.value);
       }
     });
   }
